@@ -103,6 +103,7 @@
                     <div class="form-group">
                         <label for="">Payment Type</label>
                         <div><?= $payment_type; ?></div>
+                        <div class="payment_type_ref"></div>
                     </div>
                     <div class="cart-btn">
                         <a href="<?= base_url('admin/cart/clear'); ?>" class="btn btn-danger"><i

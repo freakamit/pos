@@ -605,7 +605,24 @@ $(function () {
         });
     });
 
-    $('.confirm-order').on('click',function(){
-    });
+    $('.payment_type').on('change', function () {
+        var val = $(this).val();
 
+        switch (val) {
+            case 'CASH':
+                break;
+            case 'CARD':
+                $('.payment_type_ref').html('<div class="form-group">' +
+                    '<label class="control-label">Card Number:</label>' +
+                    '<div><input type="text" name="payment_type_ref" class="form-control" placeholder="Please Enter Card Number" required></div>' +
+                    '</div>');
+                break;
+            case 'PAYTM':
+                $('.payment_type_ref').html('<div class="form-group">' +
+                    '<label class="control-label">PayTM Number:</label>' +
+                    '<div><input type="text" name="payment_type_ref" class="form-control" placeholder="Please Enter PayTm Number" required></div>' +
+                    '</div>');
+                break;
+        }
+    })
 });
