@@ -509,6 +509,7 @@ $(function () {
             success: function (msg) {
                 if (msg == 'success') {
                     $obj.parent().parent().fadeOut(function () {
+                        $(this).remove();
                         cart_final_price();
                     });
                 }
@@ -624,5 +625,20 @@ $(function () {
                     '</div>');
                 break;
         }
-    })
+    });
+
+
+    $('.confirm-order').on('click', function () {
+        $.ajax({
+            url: baseURL.origin + sitename + '/admin/checkout/success',
+            data: $('#order_form').serialize(),
+            type: 'POST',
+            beforeSend: function () {
+                console.log($('.order_list tr').length);
+            },
+            success: function () {
+
+            }
+        });
+    });
 });
