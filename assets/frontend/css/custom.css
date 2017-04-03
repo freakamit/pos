@@ -1,0 +1,20 @@
+.parsley-errors-list{
+    font-size: 12px;
+}
+.parsley-errors-list li{
+    color: red;
+}
+.admission_note{
+    background-color: #0f4f7b;
+    padding:15px;
+}
+.admission_note h3{
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.admission_note ul li{
+    font-size: 13px;
+    color: #ffffff;
+    margin-bottom: 8px;
+    list-style: inside;
+}
