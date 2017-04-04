@@ -1,6 +1,11 @@
 <div id="content">
     <div class="row">
         <?= form_open($action, $attributes); ?>
+        <?php
+        if ($this->session->flashdata('alert')):
+            echo $this->session->flashdata('alert');
+        endif;
+        ?>
         <div class="col-lg-8">
             <section class="panel corner-flip">
                 <div class="panel-body">
@@ -63,7 +68,7 @@
                 </div>
             </section>
             <section class="panel corner-flip">
-                <div class="panel-body">
+                <div class="panel-body total-detail-wrap" style="position: relative;">
                     <ul class="cart-total-detail">
                         <li>
                             <ul>
@@ -104,6 +109,27 @@
                         <label for="">Payment Type</label>
                         <div><?= $payment_type; ?></div>
                         <div class="payment_type_ref"></div>
+                    </div>
+
+                    <div class="payment-received-wrap">
+                        <ul>
+                            <li>
+                                <div class="form-group">
+                                    <label for="">Amount Received</label>
+                                    <div>
+                                        <input type="text" class="form-control received_amt">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-group">
+                                    <label for="">Change</label>
+                                    <div>
+                                        <input type="text" class="form-control change_amt" readonly>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                     <div class="cart-btn">
                         <a href="<?= base_url('admin/cart/clear'); ?>" class="btn btn-danger"><i

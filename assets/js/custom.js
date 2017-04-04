@@ -44,67 +44,6 @@ $(function () {
         });
     });
 
-    //function to display product attribute field
-    $('body').on('change', '.attr_set', function (event) {
-        var val = $(this).val();
-        if (checkClass('.edit-attrib') > 0) {
-            $('.edit-attrib-btn').remove();
-            $('.edit-attrib').parent().parent().remove();
-        }
-        $obj = $('#attr_list').parent().parent();
-
-
-        $.ajax({
-            url: baseURL.origin + sitename + '/admin/product/product_attr_request/' + val,
-            type: 'POST',
-            dataType: 'json',
-            beforeSend: function () {
-                $obj.css({'position': 'relative'});
-                $obj.find('label').prepend('<div class="loader-overlay inline"></div>');
-                setTimeout(function () {
-                    return true;
-                }, 800);
-            },
-            success: function (msg) {
-                setTimeout(function () {
-                    $obj.html('');
-                    $obj.append(msg);
-                }, 800);
-            }
-        });
-    });
-    var prod_attr = 1;
-    $('.add_product_type').live('click', function () {
-        var attr_id = $(this).attr('data-id');
-        var edit_count = $(this).attr('data-count');
-        if (jQuery.type(edit_count) === "undefined") {
-
-        } else {
-            prod_attr = edit_count;
-            prod_attr++;
-            $('.add_product_type').attr('data-count', prod_attr);
-        }
-        var html = '';
-        html += '<div class="product_type_wrap_' + prod_attr + '">';
-        html += '<div class="col-md-4"><input type="text" placeholder="Enter Product Type" class="form-control attr_list" parsley-required="true" name="attr[' + attr_id + '][option][]" value=""></div>';
-        html += '<div class=col-md-4><input type="text" placeholder="Price Amount" class="form-control attr_list" parsley-required="true" name="attr[' + attr_id + '][value][]" value=""></div>';
-        html += '<div class=col-md-4><span class="btn btn-danger remove_product_type" data-id = "' + prod_attr + '">Remove</span></div>';
-        html += '</div>';
-
-        if (jQuery.type(edit_count) === "undefined" || edit_count == '') {
-            prod_attr++;
-            $('.product_type_wrap').append(html);
-        } else {
-            $('.product_type_wrap').last().append(html);
-        }
-    });
-
-    $('.remove_product_type').live('click', function () {
-        var id = $(this).attr('data-id');
-        $('.product_type_wrap_' + id).remove();
-    });
-
-
     $('.slug_title').on('keyup', function () {
         var value = $(this).val();
 
@@ -159,40 +98,6 @@ $(function () {
     });
 
     $('table[data-provide="data-table"]').dataTable();
-
-    $(".sortable").sortable({
-        update: function () {
-            var i = 0;
-            var count = 1;
-
-            var object = {};
-
-            $obj = $(this).children('tr');
-            $obj.each(function () {
-                var id = $(this).attr('data-value');
-                object[i] = [['id', id], ['position', count]]
-                i++;
-                count++;
-            });
-
-            $.ajax({
-                type: 'POST',
-                url: baseURL.origin + sitename + '/admin/dashboard/slider_sort',
-                data: {'position': object},
-                success: function (msg) {
-                    if (msg == 'success') {
-                        $('.slider_pos_apply').show();
-                    }
-                }
-            });
-
-        }
-    });
-
-    $('body').on('click', '.slider_pos_apply', function () {
-        location.reload(true);
-    });
-    $("#sortable").disableSelection();
 
     var ckeditor = checkId('.ckeditor');
     if (ckeditor) {
@@ -257,19 +162,6 @@ $(function () {
         });
     });
 
-    $('body').on('change', '.ad_position', function () {
-        var pos = $(this).val();
-        if (pos == 2) {
-            $('.help-block').html('[Dimension: {Width: 614px | Height: 486px}]');
-        } else if (pos == 4) {
-            $('.help-block').html('[Dimension: {Width: 1270px | Height: 200px}]');
-        } else if (pos == 3) {
-            $('.help-block').html('[Dimension: {Width: 790px | Height: 200px}]');
-        } else {
-            $('.help-block').html('[Dimension: Any]');
-        }
-    });
-
     $('body').on('change', '.nav_group', function () {
 
         $div = $('.nav_parent').parent();
@@ -296,40 +188,6 @@ $(function () {
         });
     });
 
-    //notification review from notificaiton list of logged in users
-    $('span.tooltip-area').on('click', 'a.notification_review', function (e) {
-        e.preventDefault();
-        var userId = $('.active_user_id').val();
-        var notification_id = $(this).attr('class').split(' ')[4].split('_')[2].toString();
-        var url_link = $('.notification_link_' + notification_id).text();
-        var redirect_url = baseURL.origin + sitename + url_link;
-        $.ajax({
-            url: baseURL.origin + sitename + '/admin/notification/change_status',
-            data: {user_id: userId, id: notification_id},
-            type: 'POST',
-            success: function (data) {
-                window.location.href = redirect_url;
-            },
-        });
-    });
-
-    $('.confirm_review').click(function (e) {
-        e.preventDefault();
-        var userId = $(this).attr('data-user');
-        var notification_id = $(this).attr('class').split(' ')[4].split('_')[2].toString();
-        var url_link = $(this).attr('href');
-        var redirect_url = url_link;
-        $.ajax({
-            url: baseURL.origin + sitename + '/admin/notification/change_status',
-            data: {user_id: userId, id: notification_id},
-            type: 'POST',
-            success: function (data) {
-                window.location.href = redirect_url;
-            },
-        });
-
-    });
-
     $(".md-effect").click(function (event) {
         event.preventDefault();
         var id = $(this).attr('data-id');
@@ -337,55 +195,6 @@ $(function () {
         $('#modal_input_id').val(id)
         var data = $(this).data();
         $("#md-effect").attr('class', 'modal fade').addClass(data.effect).modal('show')
-    });
-
-
-    $(".geo-location").click(function (event) {
-        event.preventDefault();
-        var id = $(this).attr('data-id');
-        var latitude = $(this).attr('data-latitude');
-        $('#modal_input_id').val(id)
-        var data = $(this).data();
-        if (latitude == '') {
-            $("#geo-location").attr('class', 'modal fade').addClass(data.effect).modal('show');
-            getLocation();
-        }
-    });
-
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            $('#geo-message').html("Geolocation is not supported by this browser.");
-        }
-    }
-
-    function showPosition(position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        $('.modal-scrollable #geo-location .geolocation_latitude').val(latitude);
-        $('.modal-scrollable #geo-location .geolocation_longitude').val(longitude);
-    }
-
-    $('body').on('change', '.order_status_switch', function () {
-        var status = 0;
-        if ($(this).attr('checked') == 'checked') {
-            status = 1;
-        }
-        $.ajax({
-            url: baseURL.origin + sitename + '/admin/dashboard/order_status',
-            data: {status: status},
-            type: 'POST',
-            beforeSend: function () {
-                var choice = confirm('Are You Sure You Want to Disable Order?');
-
-                if (choice == true) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        });
     });
 
     $('body').on('click', '.delete-btn', function () {
@@ -457,7 +266,8 @@ $(function () {
                     $('.search-list').html('');
                     return false;
                 } else {
-                    $('.search-list').html('<div class="loader-overlay"></div>');
+                    $('.search-list').html('<div class="loader-overlay-2"></div>');
+                    $('.search-list').css({'height': '70px'});
                     setTimeout(function () {
                         return true;
                     }, 800);
@@ -465,7 +275,11 @@ $(function () {
             },
             success: function (data) {
                 if (data) {
-                    $('.search-list').html(data);
+                    setTimeout(function () {
+                        $('.loader-overlay-2').fadeOut();
+                        $('.search-list').css({'height': 'auto'});
+                        $('.search-list').html(data);
+                    }, 800);
                 }
             }
         });
@@ -494,7 +308,6 @@ $(function () {
     function check_table_list() {
         var count = $('.order_list tr').length;
         if (count == 0) {
-            $('.order_list').append('<tr class="empty_list"><td colspan="6"><strong>No Item on the list</strong></td></tr>');
         } else {
             $('.empty_list').remove();
         }
@@ -538,10 +351,19 @@ $(function () {
                 tax: tax,
                 service: service
             },
+            beforeSend: function () {
+                $('.total-detail-wrap').append('<div class="loader-overlay-2"></div>');
+                setTimeout(function () {
+                    return true;
+                }, 800);
+            },
             success: function (msg) {
                 if (msg) {
-                    $('.grand-total').val(msg);
-                    $('.grand-total-disp').html(msg);
+                    setTimeout(function () {
+                        $('.loader-overlay-2').hide();
+                        $('.grand-total').val(msg);
+                        $('.grand-total-disp').html(msg);
+                    }, 800);
                 }
             }
         });
@@ -579,9 +401,20 @@ $(function () {
             url: baseURL.origin + sitename + '/admin/order/customer_list',
             data: {name: val},
             type: 'POST',
+            beforeSend: function () {
+                $('.customer-list').html('<div class="loader-overlay-2"></div>');
+                $('.customer-list').css({'height': '70px'});
+                setTimeout(function () {
+                    return true;
+                }, 800);
+            },
             success: function (msg) {
                 if (msg) {
-                    $('.customer-list').html(msg);
+                    setTimeout(function () {
+                        $('.loader-overlay-2').fadeOut();
+                        $('.customer-list').css({'height': 'auto'});
+                        $('.customer-list').html(msg);
+                    }, 800);
                 }
             }
         });
@@ -593,6 +426,7 @@ $(function () {
 
     $('body').on('click', '.customer-list ul li', function () {
         $('.customer-list').html('');
+        $('.customer').val('');
 
         var id = $(this).find('a').attr('data-id');
 
@@ -627,18 +461,52 @@ $(function () {
         }
     });
 
+    $('.received_amt').keyup(function () {
+        var grand_total = $('.grand-total').val();
+        var change;
+
+        change = $(this).val() - grand_total;
+
+        $('.change_amt').val(change.toFixed((2)));
+
+    });
 
     $('.confirm-order').on('click', function () {
+        var error = '';
+        if ($('.order_list tr').length == 0) {
+            error += 'No Item on the list<br>';
+        }
+        if ($('.received_amt').val() == '') {
+            error += 'Please Enter amount received';
+        }
+        if (error == '') {
+            $('.modal-title').html('Confirm Order');
+            $('.alert-message-modal').html('Are you sure you want to place an order?');
+            $('#md-confirm').modal('show');
+        } else {
+            $('.modal-title').html('Error');
+            $('.alert-message-modal').html(error);
+            $('#md-alert').modal('show');
+        }
+    });
+
+    $('body').on('click', '.confirm_cancel', function () {
+        $('#md-confirm').hide();
+    });
+
+    $('body').on('click', '.confirm_btn', function (e) {
+        e.preventDefault();
+
         $.ajax({
             url: baseURL.origin + sitename + '/admin/checkout/success',
             data: $('#order_form').serialize(),
             type: 'POST',
-            beforeSend: function () {
-                console.log($('.order_list tr').length);
-            },
-            success: function () {
-
+            success: function (msg) {
+                if (msg) {
+                    location.reload();
+                }
             }
         });
     });
+
 });

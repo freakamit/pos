@@ -85,7 +85,7 @@ class Order extends CI_Controller
         $s = $this->order_model->get_customer_detail($id);
 
         $html = '';
-        $html .= '<input type="hidden" name="customer_id" value="' . $s->id . '">';
+        $html .= '<input type="hidden" name="customer_id" value="' . $s->id . '" class="customer_id">';
         $html .= '<div class="image-wrap"><span class="image">' . show_image($s->user_image, '', '$return') . '</span></div>';
         $html .= '<div class="detail-wrap">' . get_fullname($s->first_name, $s->middle_name, $s->last_name) . '<br> Contact No: ' . $s->mobile . '</div>';
 

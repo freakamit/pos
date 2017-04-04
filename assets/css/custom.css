@@ -195,6 +195,15 @@ img{
     height:100%;
     width:100%;
 }
+.loader-overlay-2{
+    background: url(../img/loader2.gif) no-repeat rgba(255,255,255,.6) 50% 10px;
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background-size: contain;
+}
 .loader-overlay.center{
     background-position: center 10px;
 }
@@ -351,4 +360,24 @@ table caption{ font-size:25px; text-align:left; padding:10px; position:relative;
     width: calc(100% - 84px);
     margin-left: 10px;
     vertical-align: middle;
+}
+.payment-received-wrap{
+    border-top: 1px dashed #3db9af;
+    border-bottom: 1px dashed #3db9af;
+}
+.payment-received-wrap > ul > li{
+    width: 49%;
+    display: inline-block;
+    text-align: center;
+}
+.payment-received-wrap > ul > li input{
+    border: none;
+    border-bottom: 1px dashed #3db9af;
+    text-align: center;
+    width: 120px !important;
+    margin: auto;
+    font-size: 24px;
+}
+.payment-received-wrap > ul > li:first-child{
+    border-right: 1px dashed #3db9af;
 }
