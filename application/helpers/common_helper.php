@@ -182,9 +182,24 @@ function db_format_date($date) {
     return date('Y-m-d', strtotime($date));
 }
 
+//function to convert time into databas format
+function db_format_time($time){
+    return date('H:i:s A', strtotime($time));
+}
+
 //function to convert date into user format
 function user_format_date($date) {
     return date(settings('date_format'), $date);
+}
+
+//function to cover datetime into user format
+function user_format_datetime($date) {
+    return date(settings('date_format') . ' - ' . settings('time_format'), $date);
+}
+
+//function to convert string date into user defined date time function
+function user_format_date_custom($format, $date) {
+    return gmdate($format, $date);
 }
 
 //function to generate slug

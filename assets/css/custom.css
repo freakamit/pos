@@ -381,3 +381,10 @@ table caption{ font-size:25px; text-align:left; padding:10px; position:relative;
 .payment-received-wrap > ul > li:first-child{
     border-right: 1px dashed #3db9af;
 }
+.bill_no {
+    border: none;
+    border-bottom: 1px dashed #3db9af;
+    width: 200px !important;
+    font-size: 24px;
+    text-align: center;
+}

@@ -20,7 +20,7 @@
                                 $btn_extra = '';
                                 if (isset($button['btn_extra'])):
                                     foreach ($button['btn_extra'] as $k => $v):
-                                        $btn_extra.=$k . '="' . $v . '" ';
+                                        $btn_extra .= $k . '="' . $v . '" ';
                                     endforeach;
                                 endif;
                                 echo '<a href="' . $button['url'] . '" class="btn btn-' . $button['class'] . '" style="margin-right:15px" ' . $btn_extra . '><i class="fa fa-' . $button['icon'] . '"></i> ' . $button['title'] . '</a>';
@@ -40,20 +40,10 @@
                             echo '<tr>';
                             foreach ($d as $k => $v):
                                 echo '<td><span>' . $k . ' : </span>' . $v . '</td>';
-                                if ($k == 'Latitude') {
-                                    $latitude = $v;
-                                }
-                                if ($k == 'Longitude') {
-                                    $longitude = $v;
-                                }
                             endforeach;
                             echo '</tr>';
                         endforeach;
                         echo '</table>';
-                        if ($latitude == 'Not Available' || $longitude == 'Not Available'):
-                        else:
-                            echo '<div id="map_canvas"></div>';
-                        endif;
 
                         echo '</div>';
                     endif;
@@ -68,52 +58,54 @@
                             echo form_open($bulk_action, '');
                         endif;
                         ?>
-                        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped table-hover" id="data-table">
+                        <table cellpadding="0" cellspacing="0" border="0"
+                               class="table table-bordered table-striped table-hover"
+                               id="data-table">
                             <thead>
-                                <tr>
-                                    <?php
-                                    if (isset($bulk_action)):
-                                        echo '<th class="no-sort"><input type="checkbox" class="check_all"></th>';
-                                    endif;
-                                    foreach ($fields as $field):
-                                        echo '<th>' . $field . '</th>';
-                                    endforeach;
-                                    ?>
-                                </tr>
+                            <tr>
+                                <?php
+                                if (isset($bulk_action)):
+                                    echo '<th class="no-sort"><input type="checkbox" class="check_all"></th>';
+                                endif;
+                                foreach ($fields as $field):
+                                    echo '<th>' . $field . '</th>';
+                                endforeach;
+                                ?>
+                            </tr>
                             </thead>
                             <tbody align="center">
-                                <?php
-                                $html = '';
-                                $i = 1;
-                                foreach ($list as $l):
-                                    $html.='<tr>';
-                                    if (isset($bulk_action)):
-                                        $html.='<td><input type="checkbox" name="bulk[]" class="checkboxopt" value="' . $l->id . '"></td>';
+                            <?php
+                            $html = '';
+                            $i = 1;
+                            foreach ($list as $l):
+                                $html .= '<tr>';
+                                if (isset($bulk_action)):
+                                    $html .= '<td><input type="checkbox" name="bulk[]" class="checkboxopt" value="' . $l->id . '"></td>';
+                                else:
+                                    $html .= '<td>' . $i++ . '</td>';
+                                endif;
+                                foreach ($l as $k => $v):
+                                    if ($k == 'id'):
                                     else:
-                                        $html .= '<td>' . $i++ . '</td>';
+                                        $html .= '<td>' . $v . '</td>';
                                     endif;
-                                    foreach ($l as $k => $v):
-                                        if ($k == 'id'):
+                                endforeach;
+
+                                if (isset($action)):
+                                    $html .= '<td><span class="tooltip-area">';
+                                    foreach ($action as $a):
+                                        if ($a['name'] == 'Delete'):
+                                            $html .= '<a href="javascript:void(0)" data-url="' . $a['url'] . '/' . $l->id . '" class="btn btn-default btn-sm delete-btn" title="" data-original-title="' . $a['name'] . '"><i class="fa fa-' . $a['icon'] . '"></i></a>';
                                         else:
-                                            $html.='<td>' . $v . '</td>';
+                                            $html .= '<a href="' . $a['url'] . '/' . $l->id . '" class="btn btn-default btn-sm" title="" data-original-title="' . $a['name'] . '"><i class="fa fa-' . $a['icon'] . '"></i></a>';
                                         endif;
                                     endforeach;
-
-                                    if (isset($action)):
-                                        $html.= '<td><span class="tooltip-area">';
-                                        foreach ($action as $a):
-                                            if ($a['name'] == 'Delete'):
-                                                $html.= '<a href="javascript:void(0)" data-url="' . $a['url'] . '/' . $l->id . '" class="btn btn-default btn-sm delete-btn" title="" data-original-title="' . $a['name'] . '"><i class="fa fa-' . $a['icon'] . '"></i></a>';
-                                            else:
-                                                $html.= '<a href="' . $a['url'] . '/' . $l->id . '" class="btn btn-default btn-sm" title="" data-original-title="' . $a['name'] . '"><i class="fa fa-' . $a['icon'] . '"></i></a>';
-                                            endif;
-                                        endforeach;
-                                        $html.='</span></td>';
-                                    endif;
-                                    $html.='</tr>';
-                                endforeach;
-                                echo $html;
-                                ?>
+                                    $html .= '</span></td>';
+                                endif;
+                                $html .= '</tr>';
+                            endforeach;
+                            echo $html;
+                            ?>
                             </tbody>
                         </table>
                         <?php
@@ -162,7 +154,7 @@ if (isset($latitude) && isset($longitude)):
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFWmzZqMgutIfyU_pElZsrw8PPRo-Tlko&callback=myMap"
-    async defer></script>
+            async defer></script>
 
     <style>
         #map_canvas {

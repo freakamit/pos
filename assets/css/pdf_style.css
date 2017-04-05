@@ -1,0 +1,13 @@
+.pdf_logo{
+    width: 120px;
+}
+.item_list{
+    border: 1px solid #999;
+}
+.item_list th, .item_list td{
+    padding: 5px;
+    border: 1px solid #999999;
+}
+.item_list th{
+    background: #E5E5E5;
+}

@@ -432,6 +432,12 @@ $(function () {
 
         $.ajax({
             url: baseURL.origin + sitename + '/admin/order/get_customer/' + id,
+            // beforeSend: function () {
+            // $('.table-list').append('<div class="loader-overlay-2"></div>');
+            // setTimeout(function () {
+            //     return true;
+            // }, 800);
+            // },
             success: function (msg) {
                 if (msg) {
                     $('.customer_detail').html(msg);
@@ -503,6 +509,7 @@ $(function () {
             type: 'POST',
             success: function (msg) {
                 if (msg) {
+                    window.open(baseURL.origin + sitename + '/admin/order/generate_bill/' + msg, '_blank');
                     location.reload();
                 }
             }

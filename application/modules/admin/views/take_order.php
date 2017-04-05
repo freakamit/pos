@@ -16,7 +16,7 @@
                 </div>
             </section>
             <section class="panel corner-flip">
-                <div class="panel-body">
+                <div class="panel-body table-list">
                     <table cellpadding="0" cellspacing="0" border="0"
                            class="table table-bordered table-hover table-striped">
                         <thead>
@@ -51,6 +51,16 @@
             </section>
         </div>
         <div class="col-lg-4">
+            <section class="panel corner-flip">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Bill Number</label>
+                        <div>
+                            <input type="text" class="form-control bill_no" name="bill_no" value="<?= $bill_no; ?>">
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="panel corner-flip">
                 <div class="panel-body">
                     <div class="form-group customer_name_input" style="position:relative;">

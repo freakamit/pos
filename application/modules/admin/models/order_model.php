@@ -2,6 +2,16 @@
 
 class Order_model extends CI_Model
 {
+    public function get_all()
+    {
+
+        $sql = $this->db->select('id,bill_no, customer_id, date,time')
+                        ->from('order')
+                        ->get()->result();
+
+        return $sql;
+    }
+
     public function get_item($item)
     {
         $sql = $this->db->select('p.id, p.name,c.category_name,p.price')
@@ -52,6 +62,34 @@ class Order_model extends CI_Model
             ->join('users_profile as up', 'up.user_id = u.id', 'LEFT')
             ->where('u.id', $id)
             ->get()->row();
+
+        return $sql;
+    }
+
+    function get_bill_no()
+    {
+        $query = 'SELECT bill_no FROM default_order ORDER BY id DESC LIMIT 1';
+        $sql = $this->db->query($query)->row();
+
+        if ($sql):
+            return $sql->bill_no + 1;
+        else:
+            return 1;
+        endif;
+    }
+
+    function get_order($id)
+    {
+        return $this->db->get_where('order', array('id' => $id))->row();
+    }
+
+    function order_list($id)
+    {
+        $sql = $this->db->select('ol.id, p.name, ol.price, ol.qty, ol.total')
+            ->from('order_list as ol')
+            ->join('products as p', 'p.id = ol.product_id', 'LEFT')
+            ->where('order_id', $id)
+            ->get()->result();
 
         return $sql;
     }
