@@ -28,7 +28,7 @@
                             <div class="progress-bar  progress-bar-white" aria-valuetransitiongoal="478"
                                  aria-valuemax="1000"></div>
                         </div>
-                        <label class="progress-label label-white"><a href="<?= base_url('admin/products'); ?>">VIEW
+                        <label class="progress-label label-white"><a href="<?= base_url('admin/product'); ?>">VIEW
                                 NOW</a></label>
                     </section>
                     <div class="hold-icon"><i class="fa fa-cutlery"></i></div>
