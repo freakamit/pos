@@ -25,17 +25,33 @@ class Order extends CI_Controller
             $data['list'][$i]->date = user_format_date(strtotime($d->date)) . ' - ' . $d->time;
             unset($data['list'][$i]->time);
 
-            if ($d->customer_id == 0):
-                $cust = 'Guest Customer';
-            else:
-                $cust = $this->order_model->get_customer_detail($d->customer_id);
+            switch ($d->customer_type):
+                case '1':
+                    $data['list'][$i]->customer_type = 'Registered';
 
-                if ($cust):
-                    $cust = get_fullname($cust->first_name, $cust->middle_name, $cust->last_name);
-                else:
-                    $cust = 'Customer Detail Not Available';
-                endif;
-            endif;
+                    $cust = $this->order_model->get_customer_detail($d->customer_id);
+                    if ($cust):
+                        $cust = get_fullname($cust->first_name, $cust->middle_name, $cust->last_name);
+                    else:
+                        $cust = 'Customer Detail Not Available';
+                    endif;
+                    break;
+                case '2':
+                    $data['list'][$i]->customer_type = 'Not Registered';
+
+                    $cust = $this->order_model->get_unregistered_cust($d->customer_id);
+                    if ($cust):
+                        $cust = $cust->name;
+                    else:
+                        $cust = 'Customer Detail Not Available';
+                    endif;
+                    break;
+                case '3':
+                    $data['list'][$i]->customer_type = 'None';
+                    $cust = 'Guest Customer';
+                    break;
+            endswitch;
+
             $data['list'][$i]->customer_id = $cust;
             $i++;
         endforeach;
@@ -44,6 +60,7 @@ class Order extends CI_Controller
             'SN',
             'Bill Number',
             'Customer Name',
+            'Customer Type',
             'Order Date',
             'Action'
         );

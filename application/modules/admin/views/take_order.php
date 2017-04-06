@@ -63,12 +63,17 @@
             </section>
             <section class="panel corner-flip">
                 <div class="panel-body">
+                    <div class="form-group">
+                        <label><input type="radio" name="customer_type" class="customer_type" value="1" checked> Registered</label>
+                        <label><input type="radio" name="customer_type" class="customer_type" value="2"> Not Registered</label>
+                        <label><input type="radio" name="customer_type" class="customer_type" value="3"> Non</label>
+                    </div>
                     <div class="form-group customer_name_input" style="position:relative;">
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <a href="" class="btn btn-default"><i class="fa fa-user-plus"></i></a>
+                                <a class="btn btn-default"><i class="fa fa-user-plus"></i></a>
                             </span>
-                            <input type="text" class="form-control customer" placeholder="Enter Customer Name / Code">
+                            <input type="text" class="form-control customer" name="customer_name" placeholder="Enter Customer Name / Code">
                         </div>
                         <div class="customer-list"></div>
                     </div>

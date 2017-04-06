@@ -394,30 +394,59 @@ $(function () {
         cart_final_price();
     });
 
+
+    $('.customer_type').on('change', function () {
+
+        switch ($(this).val()) {
+            case '1':
+                $('.customer_contact_input').remove();
+                break;
+            case '2':
+                $('.customer_name_input').after('<div class="form-group customer_contact_input" style="position:relative">' +
+                    '<div class="input-group">' +
+                    '<span class="input-group-btn">' +
+                    '<a class="btn btn-default">' +
+                    '<i class="fa fa-phone"></i>' +
+                    '</a>' +
+                    '</span>' +
+                    '<input type="text" name="customer_contact" class="form-control customer_number" placeholder="Enter Contact Number"></div>' +
+                    '</div>');
+                break;
+            case '3':
+
+                $('.customer_contact_input').remove();
+                break;
+        }
+    });
+
     $('body').on('keyup', '.customer', function () {
         var val = $(this).val();
 
-        $.ajax({
-            url: baseURL.origin + sitename + '/admin/order/customer_list',
-            data: {name: val},
-            type: 'POST',
-            beforeSend: function () {
-                $('.customer-list').html('<div class="loader-overlay-2"></div>');
-                $('.customer-list').css({'height': '70px'});
-                setTimeout(function () {
-                    return true;
-                }, 800);
-            },
-            success: function (msg) {
-                if (msg) {
+        if ($('.customer_type').prop('checked')) {
+
+            $.ajax({
+                url: baseURL.origin + sitename + '/admin/order/customer_list',
+                data: {name: val},
+                type: 'POST',
+                beforeSend: function () {
+                    $('.customer-list').html('<div class="loader-overlay-2"></div>');
+                    $('.customer-list').css({'height': '70px'});
                     setTimeout(function () {
-                        $('.loader-overlay-2').fadeOut();
-                        $('.customer-list').css({'height': 'auto'});
-                        $('.customer-list').html(msg);
+                        return true;
                     }, 800);
+                },
+                success: function (msg) {
+                    if (msg) {
+                        setTimeout(function () {
+                            $('.loader-overlay-2').fadeOut();
+                            $('.customer-list').css({'height': 'auto'});
+                            $('.customer-list').html(msg);
+                        }, 800);
+                    }
                 }
-            }
-        });
+            });
+        }
+
     });
 
     $('body').on('change', '.tax_checkbox,.service_checkbox', function () {
@@ -515,5 +544,6 @@ $(function () {
             }
         });
     });
+
 
 });

@@ -5,9 +5,9 @@ class Order_model extends CI_Model
     public function get_all()
     {
 
-        $sql = $this->db->select('id,bill_no, customer_id, date,time')
-                        ->from('order')
-                        ->get()->result();
+        $sql = $this->db->select('id,bill_no, customer_id, customer_type, date,time')
+            ->from('order')
+            ->get()->result();
 
         return $sql;
     }
@@ -76,6 +76,11 @@ class Order_model extends CI_Model
         else:
             return 1;
         endif;
+    }
+
+    function get_unregistered_cust($id)
+    {
+        return $this->db->get_where('unregister_customer', array('id' => $id))->row();
     }
 
     function get_order($id)

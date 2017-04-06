@@ -14,6 +14,22 @@ class Checkout extends CI_Controller
     {
         $insert_data = $this->input->post();
 
+        switch ($insert_data['customer_type']):
+            case '1':
+                break;
+            case '2':
+                $array = array(
+                    'name' => $insert_data['customer_name'],
+                    'contact' => $insert_data['customer_contact'],
+                );
+
+                $insert_data['customer_id'] = save('unregister_customer', $array);
+                break;
+            case '3';
+                $insert_data['customer_id'] = '';
+                break;
+        endswitch;
+
         if (!isset($insert_data['tax_checkbox'])):
             $insert_data['tax_amount'] = '0';
         endif;
@@ -22,7 +38,8 @@ class Checkout extends CI_Controller
         endif;
         $order_table = array(
             'bill_no' => $insert_data['bill_no'],
-            'customer_id' => isset($insert_data['customer_id']) ? $insert_data['customer_id'] : '',
+            'customer_type' => $insert_data['customer_type'],
+            'customer_id' => $insert_data['customer_id'],
             'tax_amount' => $insert_data['tax_amount'],
             'service_charge' => $insert_data['service_charge'],
             'discount_amount' => $insert_data['discount_amount'],
