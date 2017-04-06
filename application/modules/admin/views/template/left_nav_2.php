@@ -21,6 +21,6 @@
         <li><a href="<?= base_url('admin/product');?>"><i class="icon fa fa-list"></i> Items</a></li>
         <li><a href="<?= base_url('admin/order/create');?>"><i class="icon fa fa-list"></i> Order Management</a></li>
         <li><a href="<?= base_url('admin/order');?>"><i class="icon fa fa-list"></i> Order History</a></li>
-        <li><a href=""><i class="icon fa fa-list"></i> Reports</a></li>
+        <li><a href="<?= base_url('admin/reports');?>"><i class="icon fa fa-list"></i> Reports</a></li>
     </ul>
 </nav>
