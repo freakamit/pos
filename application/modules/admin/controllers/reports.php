@@ -134,7 +134,7 @@ class Reports extends CI_Controller
             $data['buttons'] = array(
                 array(
                     'title' => 'Export to Excel Sheet',
-                    'url' => base_url('admin/report/export/' . $date_range),
+                    'url' => base_url('admin/reports/export/' . $from . '/' . $to),
                     'class' => 'primary',
                     'icon' => 'file'
                 )
@@ -145,5 +145,11 @@ class Reports extends CI_Controller
         else:
             redirect('admin/report');
         endif;
+    }
+
+    public function export($from, $to)
+    {
+        echo $from . '<br>';
+        echo $to;
     }
 }

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33f32aef-19ef-4c2e-80de-96a8c26a9bac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/template/left_nav_2.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/template/left_nav_2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/controllers/reports.php" afterPath="$PROJECT_DIR$/application/modules/admin/controllers/reports.php" />
     </list>
     <ignored path="momoncafe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,8 +34,18 @@
       <file leaf-file-name="reports.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/reports.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="135" column="53" selection-start-line="135" selection-start-column="53" selection-end-line="135" selection-end-column="53" />
+            <state relative-caret-position="441">
+              <caret line="144" column="13" selection-start-line="144" selection-start-column="13" selection-end-line="144" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/admin/views/list.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="110" column="29" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -225,30 +234,8 @@
               <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pos" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -271,10 +258,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -357,12 +340,12 @@
       <workItem from="1491362828104" duration="9369000" />
       <workItem from="1491392853979" duration="7646000" />
       <workItem from="1491449472353" duration="3219000" />
-      <workItem from="1491480934821" duration="2440000" />
+      <workItem from="1491480934821" duration="2863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34520000" />
+    <option name="totallyTimeSpent" value="34943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="720" extended-state="6" />
@@ -671,14 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="110" column="29" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/helpers/common_helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2685">
@@ -797,10 +772,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="110" column="29" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/reports.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="135" column="53" selection-start-line="135" selection-start-column="53" selection-end-line="135" selection-end-column="53" />
+        <state relative-caret-position="441">
+          <caret line="144" column="13" selection-start-line="144" selection-start-column="13" selection-end-line="144" selection-end-column="13" />
           <folding />
         </state>
       </provider>
