@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
 /**
@@ -6,10 +6,10 @@
  *
  * This library will help import a CSV file into
  * an associative array.
- * 
+ *
  * This library treats the first row of a CSV file
  * as a column header row.
- * 
+ *
  *
  * @package         CodeIgniter
  * @subpackage      Libraries
@@ -18,7 +18,7 @@
  */
 
 class Csvimport {
-    
+
     private $filepath = "";
     private $handle = "";
     private $column_headers = "";
@@ -40,19 +40,19 @@ class Csvimport {
             ini_set("auto_detect_line_endings", TRUE);
         }
         // If file exists, set filepath
-        
+
             $this->_set_filepath($filepath);
-        
+
         // If column headers provided, set them
         $this->_set_column_headers($column_headers);
 
         // Open the CSV for reading
         $this->_get_handle();
-        
+
         $row = 0;
 
-        while (($data = fgetcsv($this->handle, 0, ",")) !== FALSE) 
-        {   
+        while (($data = fgetcsv($this->handle, 0, ",")) !== FALSE)
+        {
             // If first row, parse for column_headers
             if($row == 0)
             {
@@ -69,8 +69,8 @@ class Csvimport {
                     foreach ($data as $key => $value)
                     {
                         $column_headers[$key] = trim($value);
-                    }                
-                }          
+                    }
+                }
             }
             else
             {
@@ -82,7 +82,7 @@ class Csvimport {
             }
             $row++;
         }
- 
+
         $this->_close_csv();
 
         return $result;
@@ -135,5 +135,5 @@ class Csvimport {
     private function _close_csv()
     {
         fclose($this->handle);
-    }    
+    }
 }

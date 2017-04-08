@@ -7,6 +7,7 @@ class Order_model extends CI_Model
 
         $sql = $this->db->select('id,bill_no, customer_id, customer_type, date,time')
             ->from('order')
+            ->order_by('date', 'DESC')
             ->get()->result();
 
         return $sql;

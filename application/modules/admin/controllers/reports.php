@@ -149,7 +149,11 @@ class Reports extends CI_Controller
 
     public function export($from, $to)
     {
-        echo $from . '<br>';
-        echo $to;
+        $res = $this->report_model->get_sales_report($from, $to, TRUE);
+
+        $daterange = $from . ' - ' . $to;
+        $this->report_model->create_csv($res, $daterange);
+        $this->csv($res, $daterange);
     }
+
 }
