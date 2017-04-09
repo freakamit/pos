@@ -12,8 +12,49 @@ class Report_model extends CI_Model
         if ($return):
             $result = array();
             $fields = $sql->list_fields();
+
+            $i = 0;
+            foreach ($fields as $f):
+                $fields[$i] = ucwords(str_replace('_', ' ', $f));
+                $i++;
+            endforeach;
+            $fields[1] = 'Customer Name';
+
             $result['field'] = $fields;
             $result['result'] = $sql->result_array();
+
+            $i = 0;
+            foreach ($result['result'] as $r):
+                if ($r['customer_type'] == 1):
+                    $query = "SELECT CONCAT (`first_name`,' ',`middle_name`,' ',`last_name`) as `fullname`
+                        FROM default_users_profile
+                        WHERE `user_id` = " . $r['customer_id'];
+                    $sql = $this->db->query($query)->row();
+
+                    $fullname = $sql->fullname;
+
+                    $result['result'][$i]['customer_type'] = 'Registered Customer';
+
+                elseif ($r['customer_type'] == 2):
+                    $query = "SELECT `name`
+                        FROM default_unregister_customer
+                        WHERE `id` = " . $r['customer_id'];
+                    $sql = $this->db->query($query)->row();
+
+                    $fullname = $sql->name;
+
+                    $result['result'][$i]['customer_type'] = 'Not Registered Customer';
+                elseif ($r['customer_type'] == 3):
+                    $fullname = 'Guest Customer';
+                    $result['result'][$i]['customer_type'] = 'None';
+                endif;
+
+                $result['result'][$i]['customer_id'] = $fullname;
+                $result['result'][$i]['date'] = user_format_date(strtotime($r['date']));
+                $result['result'][$i]['grand_total'] = show_price(format_price($r['grand_total']));
+                
+                $i++;
+            endforeach;
 
             return $result;
         else:
