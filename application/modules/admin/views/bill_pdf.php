@@ -8,15 +8,33 @@
     <sethtmlpageheader name="myheader" value="on" show-this-page="1" />
     <sethtmlpagefooter name="myfooter" value="on" />
 mpdf-->
+<style>
+    .pdf_logo {
+        width: 120px;
+    }
+
+    .item_list {
+        border: 1px solid #999;
+    }
+
+    .item_list th, .item_list td {
+        padding: 5px;
+        border: 1px solid #999999;
+    }
+
+    .item_list th {
+        background: #E5E5E5;
+    }
+</style>
 <div class="invoice">
     <div class="row">
         <table width="100%">
             <tr>
-                <td><a href="#"> <?= show_image(settings('userfile'),'pdf_logo','$return')?> </a></td>
+                <td><a href="#"> <?= show_image(settings('userfile'), 'pdf_logo', '$return') ?> </a></td>
                 <td style="text-align: right">
                     <h3>Bill NO. #<?= $order->bill_no; ?></h3>
-                    <span>Date: <?= user_format_date(strtotime($order->date));?></span><br>
-                    <span>Time: <?= $order->time;?></span>
+                    <span>Date: <?= user_format_date(strtotime($order->date)); ?></span><br>
+                    <span>Time: <?= $order->time; ?></span>
                 </td>
             </tr>
         </table>
