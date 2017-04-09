@@ -52,7 +52,7 @@ class Report_model extends CI_Model
                 $result['result'][$i]['customer_id'] = $fullname;
                 $result['result'][$i]['date'] = user_format_date(strtotime($r['date']));
                 $result['result'][$i]['grand_total'] = show_price(format_price($r['grand_total']));
-                
+
                 $i++;
             endforeach;
 

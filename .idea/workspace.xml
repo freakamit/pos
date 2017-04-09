@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="33f32aef-19ef-4c2e-80de-96a8c26a9bac" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/controllers/order.php" afterPath="$PROJECT_DIR$/application/modules/admin/controllers/order.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/models/report_model.php" afterPath="$PROJECT_DIR$/application/modules/admin/models/report_model.php" />
     </list>
     <ignored path="momoncafe.iws" />
@@ -32,51 +33,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="reports.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/reports.php">
+      <file leaf-file-name="order.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="report_model.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/modules/admin/models/report_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+            <state relative-caret-position="465">
+              <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
               <folding>
-                <marker date="1491709056000" expanded="true" signature="135:273" ph="SELECT ol.bi... default_order" />
-                <marker date="1491709056000" expanded="true" signature="135:280" ph="SELECT bill_... " />
-                <marker date="1491709056000" expanded="true" signature="135:293" ph="SELECT bill_... " />
-                <marker date="1491709056000" expanded="true" signature="135:298" ph="SELECT bill_... " />
-                <marker date="1491709056000" expanded="true" signature="891:1061" ph="SELECT CONCA... default_users_profile" />
-                <marker date="1491709056000" expanded="true" signature="1360:1468" ph="SELECT `name... default_unregister_customer" />
+                <marker date="1491720409000" expanded="true" signature="3721:3731" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="csvimport.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/libraries/csvimport.php">
+      <file leaf-file-name="category.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/category.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2055">
-              <caret line="137" column="5" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
+            <state relative-caret-position="-1875">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/custom.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="544" column="11" selection-start-line="544" selection-start-column="11" selection-end-line="544" selection-end-column="11" />
-              <folding>
-                <marker date="1491453093000" expanded="true" signature="12493:12510" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -84,37 +58,9 @@
       <file leaf-file-name="list.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/modules/admin/views/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
-              <caret line="110" column="29" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
+            <state relative-caret-position="300">
+              <caret line="22" column="50" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="50" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/order.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-              <folding>
-                <marker date="1491454278000" expanded="true" signature="3358:3368" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/admin/models/dashboard_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-              <folding>
-                <marker date="1491404537000" expanded="true" signature="990:1133" ph="SELECT * FRO... default_orer" />
-                <marker date="1491404537000" expanded="true" signature="990:1159" ph="SELECT * FRO... default_orer" />
-                <marker date="1491404537000" expanded="true" signature="990:1192" ph="SELECT * FRO... default_order" />
-                <marker date="1491404537000" expanded="true" signature="990:1215" ph="SELECT * FRO... default_order" />
-                <marker date="1491404537000" expanded="true" signature="990:1279" ph="SELECT date,... " />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -146,12 +92,12 @@
         <option value="$PROJECT_DIR$/application/modules/admin/views/take_order.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/controllers/checkout.php" />
         <option value="$PROJECT_DIR$/assets/js/custom.js" />
-        <option value="$PROJECT_DIR$/application/modules/admin/controllers/order.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/views/template/left_nav_2.php" />
         <option value="$PROJECT_DIR$/application/libraries/csvimport.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/controllers/reports.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/models/order_model.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/models/report_model.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/controllers/order.php" />
       </list>
     </option>
   </component>
@@ -248,6 +194,32 @@
               <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pos" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -271,7 +243,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -357,12 +329,12 @@
       <workItem from="1491480934821" duration="5448000" />
       <workItem from="1491537209553" duration="1427000" />
       <workItem from="1491642199900" duration="439000" />
-      <workItem from="1491707012017" duration="1995000" />
+      <workItem from="1491707012017" duration="3009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41389000" />
+    <option name="totallyTimeSpent" value="42403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="720" extended-state="6" />
@@ -411,14 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/reports.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/admin/views/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1650">
@@ -442,7 +406,7 @@
         <state relative-caret-position="840">
           <caret line="56" column="19" selection-start-line="22" selection-start-column="8" selection-end-line="56" selection-end-column="19" />
           <folding>
-            <marker date="1491454278000" expanded="true" signature="3358:3368" ph="..." />
+            <marker date="1491720409000" expanded="true" signature="3721:3731" ph="..." />
           </folding>
         </state>
       </provider>
@@ -452,12 +416,12 @@
         <state relative-caret-position="210">
           <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
           <folding>
-            <marker date="1491709056000" expanded="true" signature="135:273" ph="SELECT ol.bi... default_order" />
-            <marker date="1491709056000" expanded="true" signature="135:280" ph="SELECT bill_... " />
-            <marker date="1491709056000" expanded="true" signature="135:293" ph="SELECT bill_... " />
-            <marker date="1491709056000" expanded="true" signature="135:298" ph="SELECT bill_... " />
-            <marker date="1491709056000" expanded="true" signature="891:1061" ph="SELECT CONCA... default_users_profile" />
-            <marker date="1491709056000" expanded="true" signature="1360:1468" ph="SELECT `name... default_unregister_customer" />
+            <marker date="1491720237000" expanded="true" signature="135:273" ph="SELECT ol.bi... default_order" />
+            <marker date="1491720237000" expanded="true" signature="135:280" ph="SELECT bill_... " />
+            <marker date="1491720237000" expanded="true" signature="135:293" ph="SELECT bill_... " />
+            <marker date="1491720237000" expanded="true" signature="135:298" ph="SELECT bill_... " />
+            <marker date="1491720237000" expanded="true" signature="891:1061" ph="SELECT CONCA... default_users_profile" />
+            <marker date="1491720237000" expanded="true" signature="1360:1468" ph="SELECT `name... default_unregister_customer" />
           </folding>
         </state>
       </provider>
@@ -480,6 +444,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1005">
           <caret line="67" column="92" selection-start-line="67" selection-start-column="79" selection-end-line="67" selection-end-column="92" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -495,7 +460,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1491454278000" expanded="true" signature="3358:3368" ph="..." />
+            <marker date="1491720409000" expanded="true" signature="3721:3731" ph="..." />
           </folding>
         </state>
       </provider>
@@ -554,7 +519,7 @@
         <state relative-caret-position="375">
           <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
           <folding>
-            <marker date="1491454278000" expanded="true" signature="3358:3368" ph="..." />
+            <marker date="1491720409000" expanded="true" signature="3721:3731" ph="..." />
           </folding>
         </state>
       </provider>
@@ -599,6 +564,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1575">
           <caret line="105" column="54" selection-start-line="105" selection-start-column="54" selection-end-line="105" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -607,7 +573,7 @@
         <state relative-caret-position="450">
           <caret line="30" column="128" selection-start-line="30" selection-start-column="116" selection-end-line="30" selection-end-column="128" />
           <folding>
-            <marker date="1491454278000" expanded="true" signature="3358:3368" ph="..." />
+            <marker date="1491720409000" expanded="true" signature="3721:3731" ph="..." />
           </folding>
         </state>
       </provider>
@@ -644,6 +610,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="22" selection-start-line="8" selection-start-column="20" selection-end-line="14" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -651,6 +618,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="5" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -695,6 +663,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -710,6 +679,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <marker date="1491405731000" expanded="true" signature="3516:3673" ph="..." />
+            <marker date="1491405731000" expanded="true" signature="3516:3679" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -724,6 +697,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1005">
           <caret line="67" column="92" selection-start-line="67" selection-start-column="79" selection-end-line="67" selection-end-column="92" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -751,9 +725,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/order_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="36" />
+          <folding>
+            <marker date="1491642264000" expanded="true" signature="2118:2176" ph="SELECT bill_... default_order" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/reports.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/report_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+          <folding>
+            <marker date="1491720237000" expanded="true" signature="135:273" ph="SELECT ol.bi... default_order" />
+            <marker date="1491720237000" expanded="true" signature="135:280" ph="SELECT bill_... " />
+            <marker date="1491720237000" expanded="true" signature="135:293" ph="SELECT bill_... " />
+            <marker date="1491720237000" expanded="true" signature="135:298" ph="SELECT bill_... " />
+            <marker date="1491720237000" expanded="true" signature="891:1061" ph="SELECT CONCA... default_users_profile" />
+            <marker date="1491720237000" expanded="true" signature="1360:1468" ph="SELECT `name... default_unregister_customer" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/libraries/csvimport.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2055">
+        <state relative-caret-position="471">
           <caret line="137" column="5" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
           <folding />
         </state>
@@ -769,27 +776,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="110" column="29" selection-start-line="110" selection-start-column="29" selection-end-line="110" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-          <folding>
-            <marker date="1491454278000" expanded="true" signature="3358:3368" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/admin/models/dashboard_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
+        <state relative-caret-position="546">
           <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
           <folding>
             <marker date="1491404537000" expanded="true" signature="990:1133" ph="SELECT * FRO... default_orer" />
@@ -801,35 +790,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/reports.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
+        <state relative-caret-position="-1875">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/order_model.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="36" />
-          <folding>
-            <marker date="1491642264000" expanded="true" signature="2118:2176" ph="SELECT bill_... default_order" />
-          </folding>
+        <state relative-caret-position="300">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/report_model.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+        <state relative-caret-position="465">
+          <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
           <folding>
-            <marker date="1491709056000" expanded="true" signature="135:273" ph="SELECT ol.bi... default_order" />
-            <marker date="1491709056000" expanded="true" signature="135:280" ph="SELECT bill_... " />
-            <marker date="1491709056000" expanded="true" signature="135:293" ph="SELECT bill_... " />
-            <marker date="1491709056000" expanded="true" signature="135:298" ph="SELECT bill_... " />
-            <marker date="1491709056000" expanded="true" signature="891:1061" ph="SELECT CONCA... default_users_profile" />
-            <marker date="1491709056000" expanded="true" signature="1360:1468" ph="SELECT `name... default_unregister_customer" />
+            <marker date="1491720409000" expanded="true" signature="3721:3731" ph="..." />
           </folding>
         </state>
       </provider>

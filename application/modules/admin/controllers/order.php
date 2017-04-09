@@ -93,6 +93,18 @@ class Order extends CI_Controller
             $i++;
         endforeach;
 
+        $data['buttons'] = array(
+            array(
+                'title' => 'Print',
+                'url' => base_url('admin/order/generate_bill') . '/' . $id,
+                'class' => 'success',
+                'icon' => 'print',
+                'btn_extra' => array(
+                    'target' => '_blank'
+                ),
+            ),
+        );
+
         $data['extra'] = array(
             array('Date' => user_format_date(strtotime($d->date)), 'Time' => $d->time),
             array('Tax Amount' => show_price(format_price($d->tax_amount)), 'Service Charge' => show_price(format_price($d->service_charge))),
