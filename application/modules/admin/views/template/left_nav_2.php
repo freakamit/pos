@@ -22,5 +22,25 @@
         <li><a href="<?= base_url('admin/order/create');?>"><i class="icon fa fa-list"></i> Order Management</a></li>
         <li><a href="<?= base_url('admin/order');?>"><i class="icon fa fa-list"></i> Order History</a></li>
         <li><a href="<?= base_url('admin/reports');?>"><i class="icon fa fa-list"></i> Reports</a></li>
+
+        <li><span><i class="icon fa fa-list"></i> Content Management</span>
+            <ul>
+                <li class="Label label-lg">Navigation</li>
+                <li><a href=""><i class="icon fa fa-list"></i> Navigation Group</a></li>
+                <li><a href=""><i class="icon fa fa-list"></i> Navigation Links</a></li>
+
+                <li class="Label label-lg">Banner</li>
+                <li><a href=""><i class="icon fa fa-image"></i> Banner </a></li>
+
+                <li class="Label label-lg">Page</li>
+                <li><a href=""><i class="icon fa fa-list"></i> Page</a></li>
+
+                <li class="Label label-lg">FAQ</li>
+                <li><a href=""><i class="icon fa fa-list"></i> FAQ</a></li>
+
+                <li class="Label label-lg">Advertisement</li>
+                <li><a href=""><i class="icon fa fa-list"></i> Advertisement</a></li>
+            </ul>
+        </li>
     </ul>
 </nav>

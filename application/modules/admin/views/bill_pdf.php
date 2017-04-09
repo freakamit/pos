@@ -8,24 +8,6 @@
     <sethtmlpageheader name="myheader" value="on" show-this-page="1" />
     <sethtmlpagefooter name="myfooter" value="on" />
 mpdf-->
-<style>
-    .pdf_logo {
-        width: 120px;
-    }
-
-    .item_list {
-        border: 1px solid #999;
-    }
-
-    .item_list th, .item_list td {
-        padding: 5px;
-        border: 1px solid #999999;
-    }
-
-    .item_list th {
-        background: #E5E5E5;
-    }
-</style>
 <div class="invoice">
     <div class="row">
         <table width="100%">

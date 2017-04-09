@@ -211,18 +211,37 @@ class Order extends CI_Controller
 
     public function _generate_pdf($html, $title, $paper = 'A4', $filename)
     {
+        if (!function_exists('curl_init')) {
+            die('cURL is not enabled');
+        }
+
         $this->load->library('mpdf60/mpdf');
         //mode,format,default_font_size,default_font,margin_left,margin_right,margin_top,margin_bottom,margin_header,margin_footer,orientation
         $mpdf = new mPDF('c', $paper, '', '', 50, 50, 10, 25, 5, 5, 'L');
-//        $boot_style = file_get_contents(base_url('assets/css/bootstrap/bootstrap.min.css')); //css ko link dine
-//        $cust_style = file_get_contents(base_url('assets/css/pdf_style.css')); //css ko link dine
+        $boot_style = $this->url_get_contents(base_url('assets/css/bootstrap/bootstrap.min.css')); //css ko link dine
+        $cust_style = $this->url_get_contents(base_url('assets/css/pdf_style.css')); //css ko link dine
 
-//        $mpdf->WriteHTML($boot_style, 1);
-//        $mpdf->WriteHTML($cust_style, 1);
+        $mpdf->WriteHTML($boot_style, 1);
+        $mpdf->WriteHTML($cust_style, 1);
 
         $mpdf->SetTitle("Bill" . $title);
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->WriteHTML($html);
         $mpdf->Output('Bill No #' . $filename . '.pdf', 'I');
+    }
+
+    function url_get_contents($url)
+    {
+        if (!function_exists('curl_init')) {
+            die('cURL is not enabled');
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        curl_close($ch);
+
+        return $output;
     }
 }
