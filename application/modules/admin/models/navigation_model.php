@@ -19,18 +19,17 @@ class Navigation_model extends CI_Model {
         return $array;
     }
 
-    public function get_all($module, $id = '0') {
-        if ($module == 'groups'):
+    public function get_all($table, $id = '0') {
+        if ($table == 'navigation_groups'):
             $this->db->select('id,title,abbrev');
-            $this->db->from($this->_table . '_' . $module);
+            $this->db->from($table);
             if ($this->session->userdata['userdata']['group_id'] != 4):
                 $this->db->where('abbrev !=', 'admin_menu');
             endif;
-
         endif;
-        if ($module == 'links'):
+        if ($table == 'navigation_links'):
             $this->db->select('l.id,l.title,g.title as nav_group,l.url');
-            $this->db->from($this->_table . '_' . $module . ' as l');
+            $this->db->from($table . ' as l');
             $this->db->join($this->_table . '_groups as g', 'l.navigation_group_id = g.id');
             $this->db->order_by('g.title');
             $this->db->order_by('l.position');
