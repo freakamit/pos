@@ -27,10 +27,10 @@
             <ul>
                 <li class="Label label-lg">Navigation</li>
                 <li><a href="<?= base_url('admin/navigation_groups')?>><i class="icon fa fa-list"></i> Navigation Group</a></li>
-                <li><a href=""><i class="icon fa fa-list"></i> Navigation Links</a></li>
+                <li><a href="<?= base_url('admin/navigation_links');?>"><i class="icon fa fa-list"></i> Navigation Links</a></li>
 
                 <li class="Label label-lg">Banner</li>
-                <li><a href=""><i class="icon fa fa-image"></i> Banner </a></li>
+                <li><a href="<?= base_url('admin/banner');?>"><i class="icon fa fa-image"></i> Banner </a></li>
 
                 <li class="Label label-lg">Page</li>
                 <li><a href=""><i class="icon fa fa-list"></i> Page</a></li>

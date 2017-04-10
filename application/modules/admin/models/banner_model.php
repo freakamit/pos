@@ -12,7 +12,7 @@ class Banner_model extends CI_Model {
     }
 
     public function get_all() {
-        return $this->db->select('id,page_name,image,primary_tag,secondary_tag,type,created_on,status')
+        return $this->db->select('id,image,primary_tag,secondary_tag,created_on,status')
                         ->get($this->_table)->result();
     }
 

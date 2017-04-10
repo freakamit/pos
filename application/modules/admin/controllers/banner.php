@@ -23,11 +23,6 @@ class Banner extends CI_Controller {
             $data['list'][$i]->created_on = user_format_date($v->created_on);
             $data['list'][$i]->status = display_status($v->status);
             $data['list'][$i]->image = show_image($v->image, 'product_img', 'return');
-            if ($v->type == '0'):
-                $data['list'][$i]->type = 'Slider';
-            else:
-                $data['list'][$i]->type = 'Single';
-            endif;
             $i++;
         endforeach;
 
@@ -41,11 +36,9 @@ class Banner extends CI_Controller {
         );
         $data['fields'] = array(
             'SN',
-            'Page',
             'Image',
             'Primary Tag Line',
             'Secondary Tag Line',
-            'Banner Type',
             'Created On',
             'Status',
             'Action'
@@ -66,26 +59,6 @@ class Banner extends CI_Controller {
     }
 
     function form_array($data = array()) {
-        $form_array['type'][] = array(
-            'name' => 'type',
-            'type' => 'dropdown',
-            'option' => $this->_type(),
-            'selected' => isset($data['type']) ? $data['type'] : false,
-            'extra' => 'class="form-control selectpicker" parsley-required="true"',
-            'label' => 'Banner Type',
-        );
-        if (!isset($data['page_name'])):
-            $form_array['type'][] = array(
-                'name' => 'page_name',
-                'type' => 'text',
-                'value' => isset($data['page_name']) ? $data['page_name'] : false,
-                'class' => 'form-control',
-                'label' => 'Affilated Page',
-                'placholder' => 'Affilated Page',
-                'parsley-required' => 'true'
-            );
-        endif;
-
         $form_array['information'] = array(
             array(
                 'name' => 'url',
@@ -142,26 +115,6 @@ class Banner extends CI_Controller {
             );
         endif;
 
-        $form_array['image'][] = array(
-            'name' => 'userfile_sub_image',
-            'type' => 'upload',
-            'class' => 'form-control',
-            'label' => 'Sub Image',
-            'description' => ''
-        );
-
-        if (isset($data['sub_image']) && $data['sub_image'] != 0):
-            $form_array['image'][] = array(
-                'name' => '',
-                'label' => '',
-                'type' => 'image_block',
-                'value' => $data['sub_image'],
-                'status' => $data['status'],
-                'class' => 'banner_sub_img',
-                'input' => FALSE
-            );
-        endif;
-
         $form_array['buttons'] = array(
             array(
                 'name' => 'submit',
@@ -193,13 +146,6 @@ class Banner extends CI_Controller {
         $data['title'] = 'Create Banner';
         $data['form_action'] = 'admin/banner/create';
 
-        $form['form_size'] = '12';
-        $form['label'] = '<strong>Banner</strong>  Type';
-        $form['sub_label'] = '';
-        $form['form_components'] = $this->form_array($this->input->post());
-        $form['form_components'] = $form['form_components']['type'];
-        $data['form'][] = $this->form_builder->build($form);
-
         $form['form_size'] = '6';
         $form['label'] = '<strong>Banner</strong>  Information';
         $form['sub_label'] = '';
@@ -223,8 +169,6 @@ class Banner extends CI_Controller {
         if ($this->input->post()):
             $datas = filter_array($this->input->post(), array('submit'));
 
-            $datas['page_slug'] = get_slug($datas['page_name']);
-
             if (!empty($_FILES['userfile']['name'])):
                 $datas['image'] = upload('uploads/banner');
             else:
@@ -237,10 +181,6 @@ class Banner extends CI_Controller {
             endif;
 
             $datas['created_on'] = strtotime("now");
-
-            if (!empty($_FILES['userfile_sub_image']['name'])):
-                $datas['sub_image'] = upload('uploads/banner/sub_image', 'userfile_sub_image');
-            endif;
 
             $insert_id = save($this->_table, $datas);
 
@@ -265,13 +205,6 @@ class Banner extends CI_Controller {
         $d = (array) $this->banner_model->get($id);
 
         $data['form_action'] = 'admin/banner/edit/' . $id;
-
-        $form['form_size'] = '12';
-        $form['label'] = '<strong>Banner</strong>  Type';
-        $form['sub_label'] = '';
-        $form['form_components'] = $this->form_array($d);
-        $form['form_components'] = $form['form_components']['type'];
-        $data['form'][] = $this->form_builder->build($form);
 
         $form['form_size'] = '6';
         $form['label'] = '<strong>Banner</strong>  Information';
@@ -303,11 +236,6 @@ class Banner extends CI_Controller {
             if (!empty($_FILES['userfile']['name'])):
                 remove_image($d['image']);
                 $datas['image'] = upload('uploads/banner');
-            endif;
-
-            if (!empty($_FILES['userfile_sub_image']['name'])):
-                remove_image($d['sub_image']);
-                $datas['sub_image'] = upload('uploads/banner/sub_image', 'userfile_sub_image');
             endif;
 
             $datas = filter_array($datas, array('main_image', 'submit'));
