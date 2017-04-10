@@ -35,14 +35,14 @@
                 <li class="Label label-lg">Page</li>
                 <li><a href="<?= base_url('admin/pages');?>"><i class="icon fa fa-list"></i> Page</a></li>
 
-                <li class="Label label-lg">FAQ</li>
-                <li><a href=""><i class="icon fa fa-list"></i> FAQ</a></li>
+<!--                <li class="Label label-lg">FAQ</li>-->
+<!--                <li><a href=""><i class="icon fa fa-list"></i> FAQ</a></li>-->
 
-                <li class="Label label-lg">Advertisement</li>
-                <li><a href=""><i class="icon fa fa-list"></i> Advertisement</a></li>
+<!--                <li class="Label label-lg">Advertisement</li>-->
+<!--                <li><a href=""><i class="icon fa fa-list"></i> Advertisement</a></li>-->
 
                 <li class="Label label-lg">Testimonials</li>
-                <li><a href=""><i class="icon fa fa-list"></i> Testimonials</a></li>
+                <li><a href="<?= base_url('admin/testimonials');?>"><i class="icon fa fa-list"></i> Testimonials</a></li>
             </ul>
         </li>
     </ul>
