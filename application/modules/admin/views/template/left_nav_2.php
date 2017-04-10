@@ -33,7 +33,7 @@
                 <li><a href="<?= base_url('admin/banner');?>"><i class="icon fa fa-image"></i> Banner </a></li>
 
                 <li class="Label label-lg">Page</li>
-                <li><a href=""><i class="icon fa fa-list"></i> Page</a></li>
+                <li><a href="<?= base_url('admin/pages');?>"><i class="icon fa fa-list"></i> Page</a></li>
 
                 <li class="Label label-lg">FAQ</li>
                 <li><a href=""><i class="icon fa fa-list"></i> FAQ</a></li>
