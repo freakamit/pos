@@ -211,7 +211,7 @@ class Customers extends CI_Controller {
         $data['action'] = array(
             array(
                 'name' => 'Order History',
-                'url' => base_url('admin/customers/order_history'),
+                'url' => base_url('admin/order/order_history'),
                 'icon' => 'eye'
             ),
             array(

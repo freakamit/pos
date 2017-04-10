@@ -2,13 +2,21 @@
 
 class Order_model extends CI_Model
 {
-    public function get_all()
+    public function get_all($id = 0)
     {
+        if (!$id) {
+            $select = "id,bill_no, customer_id, customer_type, date,time";
+        } else {
+            $select = "id, bill_no, date, time";
+        }
 
-        $sql = $this->db->select('id,bill_no, customer_id, customer_type, date,time')
+        $this->db->select($select)
             ->from('order')
-            ->order_by('date', 'DESC')
-            ->get()->result();
+            ->order_by('date', 'DESC');
+        if ($id) {
+            $this->db->where('customer_id', $id);
+        }
+        $sql = $this->db->get()->result();
 
         return $sql;
     }

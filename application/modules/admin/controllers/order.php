@@ -9,6 +9,7 @@ class Order extends CI_Controller
         check_user_session();
 
         $this->load->model('order_model');
+        $this->load->model('user_model');
     }
 
     public function index()
@@ -74,6 +75,43 @@ class Order extends CI_Controller
         );
 
         template('list', $data);
+    }
+
+    public function order_history($id)
+    {
+        $data['title'] = 'Order History';
+
+        $d = $this->user_model->get($id);
+
+        $data['label'] = '<strong>Order</strong> History';
+        $data['sub_label'] = 'Customer Name: ' . get_fullname($d->first_name, $d->middle_name, $d->last_name);
+        $data['list'] = $this->order_model->get_all($id);
+
+        $i = 0;
+        foreach ($data['list'] as $d) {
+            $data['list'][$i]->bill_no = '#' . $d->bill_no;
+            $data['list'][$i]->date = user_format_date(strtotime($d->date)) . ' - ' . $d->time;
+            unset($data['list'][$i]->time);
+            $i++;
+        }
+
+        $data['fields'] = array(
+            'SN',
+            'Bill Number',
+            'Order Date',
+            'Action'
+        );
+
+        $data['action'] = array(
+            array(
+                'name' => 'View Order',
+                'url' => base_url('admin/order/order_list'),
+                'icon' => 'eye'
+            ),
+        );
+
+        template('list', $data);
+
     }
 
     public function order_list($id)

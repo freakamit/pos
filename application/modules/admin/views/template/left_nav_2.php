@@ -26,7 +26,7 @@
         <li><span><i class="icon fa fa-list"></i> Content Management</span>
             <ul>
                 <li class="Label label-lg">Navigation</li>
-                <li><a href=""><i class="icon fa fa-list"></i> Navigation Group</a></li>
+                <li><a href="<?= base_url('admin/navigation_groups')?>><i class="icon fa fa-list"></i> Navigation Group</a></li>
                 <li><a href=""><i class="icon fa fa-list"></i> Navigation Links</a></li>
 
                 <li class="Label label-lg">Banner</li>
@@ -40,6 +40,9 @@
 
                 <li class="Label label-lg">Advertisement</li>
                 <li><a href=""><i class="icon fa fa-list"></i> Advertisement</a></li>
+
+                <li class="Label label-lg">Testimonials</li>
+                <li><a href=""><i class="icon fa fa-list"></i> Testimonials</a></li>
             </ul>
         </li>
     </ul>
