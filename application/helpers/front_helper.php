@@ -9,15 +9,13 @@
  */
 
 //functio to load the front view files
-function front_template($templete, $data) {
-    $ci = & get_instance();
+function front_template($templete, $data)
+{
+    $ci = &get_instance();
     $temp = array(
-        'frontend/template/head',
         'frontend/template/header',
         'frontend/template/header_nav',
         $templete,
-        'frontend/template/ads',
-        'frontend/login/login',
         'frontend/template/footer'
     );
     $uri_segment = $ci->uri->segment(1);
@@ -30,48 +28,17 @@ function front_template($templete, $data) {
     endforeach;
 }
 
-//function to load the front view customer files
-function customer_template($templete, $data) {
-    $ci = & get_instance();
-    $temp = array(
-        'frontend/template/head',
-        'frontend/template/header',
-        'frontend/template/header_nav',
-        'customer/template/dashboard_panel',
-        $templete,
-        'frontend/template/footer'
-    );
-    foreach ($temp as $t):
-        $ci->load->view($t, $data);
-    endforeach;
-}
-
-//function to load the front view customer files
-function vendor_template($templete, $data) {
-    $ci = & get_instance();
-    $temp = array(
-        'frontend/template/head',
-        'frontend/template/header',
-        'frontend/template/header_nav',
-        'vendor/template/dashboard_panel',
-        $templete,
-        'frontend/template/footer'
-    );
-    foreach ($temp as $t):
-        $ci->load->view($t, $data);
-    endforeach;
-}
-
 //function to load navigation
-function get_navigation($group) {
-    $ci = & get_instance();
+function get_navigation($group)
+{
+    $ci = &get_instance();
     $sql = $ci->db->select('*')
-            ->from('navigation_groups as ng')
-            ->join('navigation_links as n', 'n.navigation_group_id = ng.id')
-            ->order_by('n.position')
-            ->where(array('ng.abbrev' => $group, 'parent' => 0))
-            ->get()
-            ->result();
+        ->from('navigation_groups as ng')
+        ->join('navigation_links as n', 'n.navigation_group_id = ng.id')
+        ->order_by('n.position')
+        ->where(array('ng.abbrev' => $group, 'parent' => 0))
+        ->get()
+        ->result();
 
     if ($sql):
         $array = array();
@@ -87,22 +54,24 @@ function get_navigation($group) {
     endif;
 }
 
-function get_child_menu($id) {
-    $ci = & get_instance();
+function get_child_menu($id)
+{
+    $ci = &get_instance();
     $sql = $ci->db->get_where('navigation_links', array('parent' => $id))->result();
 
     return $sql;
 }
 
 //function to get categories
-function categories($type) {
-    $ci = & get_instance();
+function categories($type)
+{
+    $ci = &get_instance();
 
     $sql = $ci->db->select('*')
-                    ->order_by('ordering', 'ASC')
-                    ->from('category')
-                    ->where(array('type' => $type, 'parent_id' => 0, 'active' => '1'))
-                    ->get()->result();
+        ->order_by('ordering', 'ASC')
+        ->from('category')
+        ->where(array('type' => $type, 'parent_id' => 0, 'active' => '1'))
+        ->get()->result();
 
     if ($sql):
         $array = array();
@@ -119,8 +88,9 @@ function categories($type) {
 }
 
 //funciton to get child categories
-function get_child_categories($s) {
-    $ci = & get_instance();
+function get_child_categories($s)
+{
+    $ci = &get_instance();
     $sql = $ci->db->get_where('category', array('parent_id' => $s, 'active' => '1'))->result();
 
     if ($sql):
@@ -138,7 +108,8 @@ function get_child_categories($s) {
     endif;
 }
 
-function show_price($price, $curreny = '') {
+function show_price($price, $curreny = '')
+{
     if ($curreny == ''):
         return settings('currency') . $price;
     else:
@@ -146,8 +117,9 @@ function show_price($price, $curreny = '') {
     endif;
 }
 
-function tax_amount() {
-    $ci = & get_instance();
+function tax_amount()
+{
+    $ci = &get_instance();
     $totalcartamount = $ci->cart->total();
     $tax = settings('tax');
 
@@ -156,8 +128,9 @@ function tax_amount() {
     return round($calculation, 2);
 }
 
-function final_cart_price() {
-    $ci = & get_instance();
+function final_cart_price()
+{
+    $ci = &get_instance();
     $totalcartamount = $ci->cart->total();
     $tax = settings('tax');
 
@@ -177,8 +150,9 @@ function final_cart_price() {
     return round($calculation, 2);
 }
 
-function caterogy_url($id) {
-    $ci = & get_instance();
+function caterogy_url($id)
+{
+    $ci = &get_instance();
     $sql = $ci->db->get_where('category', array('id' => $id))->result();
 
     if ($sql):
@@ -212,8 +186,9 @@ function caterogy_url($id) {
     endif;
 }
 
-function get_parent_categories($id) {
-    $ci = & get_instance();
+function get_parent_categories($id)
+{
+    $ci = &get_instance();
     $sql = $ci->db->get_where('category', array('id' => $id))->result();
 
     if ($sql):
@@ -231,22 +206,24 @@ function get_parent_categories($id) {
     endif;
 }
 
-function final_cat_url($final_array) {
+function final_cat_url($final_array)
+{
     $html = '';
     foreach (array_reverse($final_array) as $fa):
-        $html.= $fa . '/';
+        $html .= $fa . '/';
     endforeach;
     return $html;
 }
 
 //function to get label of an item
-function show_label($id, $return = FALSE) {
-    $ci = & get_instance();
+function show_label($id, $return = FALSE)
+{
+    $ci = &get_instance();
     $sql = $ci->db->select('name')
-                    ->from('products_label')
-                    ->where('id', $id)
-                    ->get()
-                    ->row()->name;
+        ->from('products_label')
+        ->where('id', $id)
+        ->get()
+        ->row()->name;
 
     if ($return == FALSE):
         return '<div class="ribbon">' . $sql . '</div>';
@@ -256,26 +233,28 @@ function show_label($id, $return = FALSE) {
 }
 
 //function to manage breadcrumbs
-function breadcrumbs() {
-    $ci = & get_instance();
+function breadcrumbs()
+{
+    $ci = &get_instance();
     $url_segment = $ci->uri->segment_array();
 
     $html = '<ul class="breadcum">';
-    $html.='<li><a href="' . base_url() . '">Home</a></li>';
+    $html .= '<li><a href="' . base_url() . '">Home</a></li>';
     $url = base_url();
 
     foreach ($url_segment as $segment):
-        $url.= $segment . '/';
-        $html.= '<li><a href="' . $url . '">' . unslug($segment) . '</a></li>';
+        $url .= $segment . '/';
+        $html .= '<li><a href="' . $url . '">' . unslug($segment) . '</a></li>';
     endforeach;
 
-    $html.='</ul>';
+    $html .= '</ul>';
     echo $html;
 }
 
 //function to get product image
-function product_image($product_id) {
-    $ci = & get_instance();
+function product_image($product_id)
+{
+    $ci = &get_instance();
     $sql = $ci->db->get_where('products_images', array('product_id' => $product_id))->row();
     if ($sql):
         return $sql->image_id;
@@ -285,21 +264,24 @@ function product_image($product_id) {
 }
 
 //function to get nepali date
-function nepali_date() {
+function nepali_date()
+{
     $time_zone = 'Asia/Katmandu';
     return date('F d, Y ');
 }
 
 //function to check if customer/vendor is logged in 
-function check_session($type) {
-    $ci = & get_instance();
+function check_session($type)
+{
+    $ci = &get_instance();
     if (!isset($ci->session->userdata['client_session']) || $ci->session->userdata['client_session']['session_type'] != $type):
         redirect('frontend');
     endif;
 }
 
 //function to get full name
-function get_fullname($first, $middle, $last) {
+function get_fullname($first, $middle, $last)
+{
     $name = ucfirst(trim($first)) . ' ';
     if ($middle != ''):
         $name .= ucfirst(trim($middle)) . ' ';
@@ -310,7 +292,8 @@ function get_fullname($first, $middle, $last) {
 }
 
 //function to convert rating into star rating
-function get_rating($d, $return = FALSE) {
+function get_rating($d, $return = FALSE)
+{
 
     if ($return == TRUE):
         $html = '<div class = "rating">';
@@ -319,39 +302,40 @@ function get_rating($d, $return = FALSE) {
     endif;
     for ($i = 0; $i < 5; $i++):
         if ($i < $d):
-            $html.='<i class = "fa fa-star"></i>';
+            $html .= '<i class = "fa fa-star"></i>';
         else:
-            $html.='<i class="fa fa-star-o"></i>';
+            $html .= '<i class="fa fa-star-o"></i>';
         endif;
 
     endfor;
     if ($return == TRUE):
-        $html.='</div>';
+        $html .= '</div>';
     else:
-        $html.='</span>';
+        $html .= '</span>';
     endif;
 
     return $html;
 }
 
 //function convert rating into stars
-function get_avg_rating($id) {
+function get_avg_rating($id)
+{
     $array = array();
 
-    $ci = & get_instance();
+    $ci = &get_instance();
     $ci->load->database();
 
     $sql = $ci->db->select_sum('rating')
-                    ->from('products_rating')
-                    ->where('product_id', $id)
-                    ->get()->row();
+        ->from('products_rating')
+        ->where('product_id', $id)
+        ->get()->row();
 
     $total_rating = $sql->rating;
 
     $sql = $ci->db->select('rating')
-            ->from('products_rating')
-            ->where('product_id', $id)
-            ->get();
+        ->from('products_rating')
+        ->where('product_id', $id)
+        ->get();
 
     $num_rows = $sql->num_rows;
 
@@ -365,8 +349,9 @@ function get_avg_rating($id) {
 }
 
 //function to get number of products for vendor
-function get_product() {
-    $ci = & get_instance();
+function get_product()
+{
+    $ci = &get_instance();
     $ci->load->database();
 
     $sql = $ci->db->get_where('products', array('vendor_id' => $ci->session->userdata('client_session')['user_id']));
@@ -375,8 +360,9 @@ function get_product() {
 }
 
 //display list of products for occasional products
-function get_occasional_products($category_id, $category_name) {
-    $ci = & get_instance();
+function get_occasional_products($category_id, $category_name)
+{
+    $ci = &get_instance();
 //    $sql = $ci->db->select('*')
 //            ->from('products_categories as pc')
 //            ->join('products as p', 'p.id = pc.product_id', 'LEFT')
@@ -388,15 +374,15 @@ function get_occasional_products($category_id, $category_name) {
 //            ->get();
 
     $sql = $ci->db->select('p.id, p.name, p.price, p.description, p.short_description,p.url, pc.category_id')
-            ->from('products as p')
+        ->from('products as p')
 //            ->join('products_images as pi', 'p.id = pi.product_id')
 //            ->join('files as f', 'f.id = pi.image_id')
-            ->join('products_categories as pc', 'p.id = pc.product_id')
+        ->join('products_categories as pc', 'p.id = pc.product_id')
 //            ->where('pi.status', '1')
-            ->where('pc.category_id', $category_id)
-            ->limit(5)
-            ->get();
-    
+        ->where('pc.category_id', $category_id)
+        ->limit(5)
+        ->get();
+
     if ($sql->result()) {
         $html = '';
         $html .= '<div class = "mega-menu">';
@@ -443,6 +429,19 @@ function get_occasional_products($category_id, $category_name) {
     // echo $html;
     // die();
     return $html;
+}
+
+function get_page($id, $return)
+{
+    $ci = &get_instance();
+
+    $sql = $ci->db->get_where('pages', array('id' => $id))->row();
+
+    if ($sql) {
+        return $sql->$return;
+    } else {
+        return FALSE;
+    }
 }
 
 ?>

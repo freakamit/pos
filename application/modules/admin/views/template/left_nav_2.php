@@ -5,6 +5,7 @@
             <ul>
                 <li><a href="<?= base_url('admin/settings?module=general'); ?>"><i class="icon fa fa-gear"></i> General Settings </a></li>
                 <li><a href="<?= base_url('admin/settings?module=charges'); ?>"><i class="icon fa fa-gear"></i> Charges Settings </a></li>
+                <li><a href="<?= base_url('admin/settings?module=store'); ?>"><i class="icon fa fa-gear"></i> Store Settings </a></li>
             </ul>
         </li>
         <li><span><i class="icon fa fa-users"></i> User Management</span>

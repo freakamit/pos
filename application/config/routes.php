@@ -41,8 +41,8 @@ if (!defined('BASEPATH'))
   |
  */
 
-$default_controller = "admin";
-$controller_exceptions = array('admin');
+$default_controller = "frontend";
+$controller_exceptions = array('admin', 'frontend');
 $route['default_controller'] = $default_controller;
     
 $route["^((?!\b" . implode('\b|\b', $controller_exceptions) . "\b).*)$"] = $default_controller;
