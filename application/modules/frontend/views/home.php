@@ -46,7 +46,6 @@
         <div class="overlay">
             <h2>Menu</h2>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed.</p>
         </div>
     </div>
     <div class="container">
@@ -80,7 +79,6 @@
         <div class="overlay">
             <h2>Gallery</h2>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed.</p>
         </div>
     </div>
     <div class="container">
@@ -95,9 +93,6 @@
                                 echo '<li><a href="#" data-filter=".' . $i->category_slug . '">' . $i->category_name . '</a></li>';
                             }
                             ?>
-                            <!--                            <li><a href="#" data-filter=".breakfast">Breakfast</a></li>-->
-                            <!--                            <li><a href="#" data-filter=".lunch">Lunch</a></li>-->
-                            <!--                            <li><a href="#" data-filter=".dinner">Dinner</a></li>-->
                         </ol>
                     </li>
                 </ul>
