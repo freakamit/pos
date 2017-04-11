@@ -117,17 +117,18 @@
                     }
                 }
 
+                shuffle($array);
                 $html = '';
                 foreach ($array as $a) {
-                    $html .= '<div class="col-sm-6 col-md-4 col-lg-4 ' . $a->category . '">';
+                    $html .= '<div class="col-sm-6 col-md-3 col-lg-3 ' . $a->category . '">';
                     $html .= '<div class="portfolio-item">';
                     $html .= '<div class="hover-bg">';
-                    $html .= '<a href="'.show_image($a->image_id,'','background').'" title="' . $a->name . '"
+                    $html .= '<a href="' . show_image($a->image_id, '', 'background') . '" title="' . $a->name . '"
                                                  data-lightbox-gallery="gallery1">';
                     $html .= '<div class="hover-text">';
                     $html .= '<h4>' . $a->name . '</h4>';
                     $html .= '</div>';
-                    $html .= '<img src="'.show_image($a->image_id,'','background').'" class="img-responsive" alt="'.$a->name.'">';
+                    $html .= '<img src="' . show_image($a->image_id, '', 'background') . '" class="img-responsive" alt="' . $a->name . '">';
                     $html .= '</a>';
                     $html .= '</div>';
                     $html .= '</div>';
@@ -135,138 +136,6 @@
                 }
                 echo $html;
                 ?>
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 breakfast">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/01-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/01-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 dinner">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/02-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/02-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 breakfast">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/03-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/03-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 breakfast">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/04-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/04-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 dinner">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/05-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/05-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 lunch">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/06-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/06-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 lunch">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/07-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/07-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 breakfast">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/08-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/08-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 dinner">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/09-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/09-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 lunch">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/10-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/10-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 lunch">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/11-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/11-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                <div class="col-sm-6 col-md-4 col-lg-4 breakfast">-->
-                <!--                    <div class="portfolio-item">-->
-                <!--                        <div class="hover-bg"><a href="img/portfolio/12-large.jpg" title="Dish Name"-->
-                <!--                                                 data-lightbox-gallery="gallery1">-->
-                <!--                                <div class="hover-text">-->
-                <!--                                    <h4>Dish Name</h4>-->
-                <!--                                </div>-->
-                <!--                                <img src="img/portfolio/12-small.jpg" class="img-responsive" alt="Project Title"> </a>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
             </div>
         </div>
     </div>
@@ -315,7 +184,6 @@
         <div class="section-title text-center">
             <h2>Contact Form</h2>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed.</p>
         </div>
         <div class="col-md-10 col-md-offset-1">
             <form name="sentMessage" id="contactForm" novalidate>
