@@ -159,10 +159,9 @@ class Product extends CI_Controller {
         $i = 0;
         foreach ($data['list'] as $k => $v):
             $data['list'][$i]->active = display_status($v->active);
-            $data['list'][$i]->image_id = show_thumb_image($v->image_id, 'product_img', 'return');
+            $data['list'][$i]->image_id = show_image($v->image_id, 'product_img', 'return');
             $i++;
         endforeach;
-        //dumparray($data['list']);
         $data['buttons'] = array(
             array(
                 'title' => 'Add New Item',

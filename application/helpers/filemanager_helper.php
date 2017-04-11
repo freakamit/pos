@@ -251,7 +251,11 @@ function show_image($id, $class = NULL, $return_type = '') {
     if ($return_type == 'echo'):
         echo $return;
     elseif ($return_type == 'background'):
-        return $image_path;
+        if($image_path){
+            return $image_path;
+        }else{
+            return base_url('assets/img/noimage.jpg');
+        }
     else:
         return $return;
     endif;
