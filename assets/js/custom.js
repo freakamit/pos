@@ -369,8 +369,7 @@ $(function () {
         });
     }
 
-    $('body').on('keypress', '.qty-input', function (e) {
-        if (e.keyCode == 13) {
+    $('body').on('focusout', '.qty-input', function (e) {
             $.ajax({
                 url: baseURL.origin + sitename + '/admin/cart/update',
                 data: {qty: $(this).val(), key: $(this).attr('data-key')},
@@ -383,7 +382,6 @@ $(function () {
                     }
                 }
             });
-        }
     });
 
     $('#order_form').on('submit', function (e) {
